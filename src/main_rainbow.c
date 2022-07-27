@@ -6,7 +6,7 @@
 /*   By: albagarc <albagarc@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/25 13:27:23 by albagarc          #+#    #+#             */
-/*   Updated: 2022/07/26 19:02:11 by albagarc         ###   ########.fr       */
+/*   Updated: 2022/07/26 17:48:02 by albagarc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,31 +33,78 @@ void	my_mlx_pixel_put(t_data *data, int x, int y, int color)
 
 int	main(void)
 {
+
+	
+//	const int colors[7] = {0xff0000, 0xff8c00, 0xffff00, 0xff00, 0xffff, 0xff1493, 0x551a8b};
 	void	*mlx;
 	void	*mlx_win;
 	t_data img;
 	int i;
 	int j;
+	int x;
+	int color;
 	
-	i = 200;
-	j = 200;
+//	int pixel;
+//	pixel = 0;
+	i = 0;
+	j = 0;
+	x = 0;
+	color = 0;
 	mlx = mlx_init();
 	mlx_win = mlx_new_window(mlx, 1920, 1080, "Hello world!");
 	img.img = mlx_new_image(mlx, 1920, 1080);
 	img.addr = mlx_get_data_addr(img.img, &img.bits_per_pixel, &img.line_length,&img.endian);
 	
-		while(i < 500 || j < 500)
+	while(i < 1080 || j < 1920)
+	{
+		i = 0;
+		color = 0;
+		while (i < 1080)
 		{
-			while (i < 500)
+			x = 0;
+			while (x < 274 )
 			{
-				my_mlx_pixel_put(&img, 200, i, 0xff0000);
-				my_mlx_pixel_put(&img, 500, i, 0xff0000);
-				i++;
+				my_mlx_pixel_put(&img, x, i, 0xff0000 + (i/5));
+				x++;
 			}
-			my_mlx_pixel_put(&img,j, 200, 0xcd66 );
-			my_mlx_pixel_put(&img,j, 500, 0xcd66 );
-			j++;
+			while(x >= 274  && x < 548)
+			{
+				my_mlx_pixel_put(&img,x , i, (i/5) +  0xff8c00);
+				x++;
+			}
+			while(x >= 548 && x < 822)
+			{
+				my_mlx_pixel_put(&img,x , i, 0xffff00 + (i/5));
+				x++; 
+			}
+			while(x >= 822 && x < 1096)
+			{
+				my_mlx_pixel_put(&img,x , i, 0xff00 + (i/5));
+				x++;
+			}
+			while(x >= 1096 && x < 1370)
+			{
+				my_mlx_pixel_put(&img,x , i, 0xffff + (i/15));
+				x++;
+			}
+			while(x >= 1370 && x < 1644)
+			{
+				my_mlx_pixel_put(&img,x , i, 0xff1493 + (i/15));
+				x++;
+			}
+			while(x >= 1644 && x < 1920)
+			{
+				my_mlx_pixel_put(&img,x , i, 0x551a8b + (i/15));
+				x++;
+			}
+			i++;
 		}
+	//	my_mlx_pixel_put(&img,j, 200, 0xcd66 + (j /5));
+	//	color++;
+		x++;
+		j++;
+	}
+	
 	
 	mlx_put_image_to_window(mlx, mlx_win, img.img, 0, 0);
 	mlx_loop(mlx);
