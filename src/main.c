@@ -6,11 +6,13 @@
 /*   By: albagarc <albagarc@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/25 13:27:23 by albagarc          #+#    #+#             */
-/*   Updated: 2022/07/26 19:02:11 by albagarc         ###   ########.fr       */
+/*   Updated: 2022/07/27 16:42:00 by albagarc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../lib/minilibx_macos/mlx.h"
+#include <stdio.h>
+#include <unistd.h>
 
 
 
@@ -38,26 +40,46 @@ int	main(void)
 	t_data img;
 	int i;
 	int j;
+	int x;
+	
 	
 	i = 200;
 	j = 200;
+	x = 0;
+	
 	mlx = mlx_init();
 	mlx_win = mlx_new_window(mlx, 1920, 1080, "Hello world!");
 	img.img = mlx_new_image(mlx, 1920, 1080);
 	img.addr = mlx_get_data_addr(img.img, &img.bits_per_pixel, &img.line_length,&img.endian);
-	
-		while(i < 500 || j < 500)
+	while(x < 150 )
+	{
+		write(1, &x, 1);
+		printf("valor de x:%d", x);
+		i =200;
+
+		j =200;
+		while((i < 500 || j < 500) && x >= 0)
 		{
+			
 			while (i < 500)
 			{
-				my_mlx_pixel_put(&img, 200, i, 0xff0000);
-				my_mlx_pixel_put(&img, 500, i, 0xff0000);
+				my_mlx_pixel_put(&img, 200 + x, i, 0xff0000 + x);
+				my_mlx_pixel_put(&img, 500 - x, i, 0xff0000 + x);
 				i++;
+		//		x++;
 			}
-			my_mlx_pixel_put(&img,j, 200, 0xcd66 );
-			my_mlx_pixel_put(&img,j, 500, 0xcd66 );
+			my_mlx_pixel_put(&img,j, 200 + x, 0xcd66 + x );
+			my_mlx_pixel_put(&img,j, 500 - x, 0xcd66 + x );
 			j++;
+		//	x++;
 		}
+		x++;
+		x++;
+		x++;
+		x++;
+
+		
+	}
 	
 	mlx_put_image_to_window(mlx, mlx_win, img.img, 0, 0);
 	mlx_loop(mlx);
