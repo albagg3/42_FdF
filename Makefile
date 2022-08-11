@@ -20,7 +20,7 @@ RM = rm -f
 
 $(OBJ_DIR)%.o: $(SRC_DIR)%.c
 		mkdir -p $(OBJ_DIR)
-		$(CC)   -c $(CFLAGS) -MMD $< -o $@
+		$(CC) -I $(INC_DIR)  -c $(CFLAGS) -MMD $< -o $@
 
 all: makelib
 	@$(MAKE) $(NAME)

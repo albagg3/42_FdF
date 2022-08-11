@@ -6,7 +6,7 @@
 /*   By: albagarc <albagarc@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/25 13:27:23 by albagarc          #+#    #+#             */
-/*   Updated: 2022/07/27 16:42:00 by albagarc         ###   ########.fr       */
+/*   Updated: 2022/07/28 15:07:43 by albagarc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,45 +41,39 @@ int	main(void)
 	int i;
 	int j;
 	int x;
-	
-	
-	i = 200;
-	j = 200;
+//	int center;
+
+
 	x = 0;
-	
 	mlx = mlx_init();
 	mlx_win = mlx_new_window(mlx, 1920, 1080, "Hello world!");
 	img.img = mlx_new_image(mlx, 1920, 1080);
 	img.addr = mlx_get_data_addr(img.img, &img.bits_per_pixel, &img.line_length,&img.endian);
 	while(x < 150 )
 	{
-		write(1, &x, 1);
-		printf("valor de x:%d", x);
-		i =200;
-
-		j =200;
-		while((i < 500 || j < 500) && x >= 0)
+		i =200 + x;
+		j =200 + x;
+		while((i < (500-x) || j < (500-x)))
 		{
 			
-			while (i < 500)
+			while (i < (500-x))
 			{
 				my_mlx_pixel_put(&img, 200 + x, i, 0xff0000 + x);
 				my_mlx_pixel_put(&img, 500 - x, i, 0xff0000 + x);
 				i++;
-		//		x++;
 			}
 			my_mlx_pixel_put(&img,j, 200 + x, 0xcd66 + x );
 			my_mlx_pixel_put(&img,j, 500 - x, 0xcd66 + x );
 			j++;
-		//	x++;
 		}
 		x++;
 		x++;
 		x++;
 		x++;
-
-		
 	}
+	
+
+
 	
 	mlx_put_image_to_window(mlx, mlx_win, img.img, 0, 0);
 	mlx_loop(mlx);
