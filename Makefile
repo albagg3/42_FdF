@@ -8,7 +8,7 @@ SRC_DIR = src/
 MINILIBX_DIR = lib/minilibx_macos/
 MINILIBXCC	= -I mlx -L $(MINILIBX_DIR) -lmlx
 OPENGL = -framework OpenGL -framework AppKit
-SRC_FILES	=	main
+SRC_FILES	=	read_map get_next_line
 
 SRC 		= 	$(addprefix $(SRC_DIR), $(addsuffix .c, $(SRC_FILES)))
 OBJ 		= 	$(addprefix $(OBJ_DIR), $(addsuffix .o, $(SRC_FILES)))

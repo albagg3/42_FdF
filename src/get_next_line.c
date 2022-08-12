@@ -6,12 +6,13 @@
 /*   By: albagarc <albagarc@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/07 10:16:56 by albagarc          #+#    #+#             */
-/*   Updated: 2022/08/11 12:45:40 by albagarc         ###   ########.fr       */
+/*   Updated: 2022/08/12 10:33:40 by albagarc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../inc/get_next_line.h"
 #include "../lib/libft_src/libft.h"
+#include "../inc/defines.h"
 
 static char	*extract_line(char	*buffer)
 {
