@@ -1,0 +1,5 @@
+make fdf --dry-run --keep-going --print-directory
+make: Entering directory `/Users/albagarc/Desktop/42cursus/Fdf'
+make: `fdf' is up to date.
+make: Leaving directory `/Users/albagarc/Desktop/42cursus/Fdf'
+ 

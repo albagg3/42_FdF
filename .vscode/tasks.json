@@ -1,0 +1,31 @@
+{
+    "tasks": [
+      {
+        "type": "cppbuild",
+        "label": "Compilar Nach",
+        "command": "/usr/bin/gcc",
+        "args": [
+          // "-fdiagnostics-color=always",
+          "-g3",
+          // "-Og",
+          "${file}",
+          "${workspaceFolder}/src/get_next_line.c",
+          "${workspaceFolder}/src/read_map.c",
+          "-o",
+          "${fileDirname}/${fileBasenameNoExtension}.out"
+        ],
+        "options": {
+          "cwd": "${fileDirname}"
+        },
+        "problemMatcher": [
+          "$gcc"
+        ],
+        "group": {
+          "kind": "build",
+          "isDefault": true
+        },
+        "detail": "compilador: /usr/bin/gcc"
+      }
+    ],
+    "version": "2.0.0"
+  }

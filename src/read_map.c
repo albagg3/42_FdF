@@ -6,7 +6,7 @@
 /*   By: albagarc <albagarc@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/11 11:29:30 by albagarc          #+#    #+#             */
-/*   Updated: 2022/08/12 14:38:38 by albagarc         ###   ########.fr       */
+/*   Updated: 2022/08/17 11:29:24 by albagarc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,7 @@
 #include <fcntl.h>
 #include <stdio.h>
 #include "../lib/libft_src/libft.h"
+#include "../lib/minilibx_macos/mlx.h"
 
 //Contamos los elementos de cada linea, con este dato podremos ir comparandolo y sabiendo si todas las lineas tienen el mismo numero de elementos para que pueda ser un mapa valido.
 
@@ -36,6 +37,7 @@ int	valid_map(char	*file_name, t_map *map)
 	char 	**splitted;
 	int 	max_x;
 
+	map->total_size = 0;
 	fd = open(file_name, O_RDONLY);
 	line = get_next_line(fd);
 	while (line != NULL)
@@ -83,6 +85,7 @@ void	save_map_points(t_map *map, int	line_number, char *line)
 	}
 	map->total_size++;
 }
+//funcion que junto con la anterior me guarda en un array todos los valores de los puntos.
 
 int load_map(char *file_name, t_map *map)
 {
@@ -109,16 +112,50 @@ int load_map(char *file_name, t_map *map)
 	return(1);
 }
 
+void	my_mlx_pixel_put(t_data *data, int x, int y, int color)
+{
+	char	*dst;
+
+	dst = data->addr + (y * data->line_length + x * (data->bits_per_pixel / 8));
+	*(unsigned int*)dst = color;
+}
+
+void	draw_points(t_all *all)
+{
+	int i;
+	i = 0;
+//	while( i< 1920)
+//		{
+//			my_mlx_pixel_put(&all->data, i, i/4, ROJO);
+//			i++;
+//		}
+	while (i < all->map.total_size)
+	{
+		my_mlx_pixel_put(&all->data,all->map.points[i].coordinates[X], all->map.points[i].coordinates[Y], 0xff0000);
+		i++;
+	}
+
+}
+
 int main (int argc, char **argv)
 {
-	t_map	map;
+	void		*mlx;
+	void		*mlx_win;
+	t_all		all;
 
 	if(argc != 2)
 		return (0);
+	mlx = mlx_init();
+	mlx_win = mlx_new_window(mlx, 1920, 1080, "Hello world!");
+	all.data.img = mlx_new_image(mlx, 1920, 1080);
+	all.data.addr = mlx_get_data_addr(all.data.img, &all.data.bits_per_pixel, &all.data.line_length,&all.data.endian);
 	
-	load_map(argv[1], &map);
-//	printf("[X]=%c\n", map.points[map.total_size].coordinates[X]);
-//	valid_map(argv[1], &map);
-	printf("fd=%d", valid_map(argv[1], &map));
+	load_map(argv[1], &all.map);
+	draw_points(&all);
+	mlx_put_image_to_window(mlx, mlx_win, all.data.img, 0, 0);
+//	mlx_do_sync(mlx);
+	mlx_loop(mlx);
+
+	return(0);
 
 }

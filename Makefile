@@ -1,11 +1,12 @@
 NAME = fdf 
 CC = gcc
 LIBFT_DIR = lib/libft_src
-CFLAGS = -Wall -Wextra -Werror
+CFLAGS = -Wall -Wextra -Werror -g3
 INC_DIR = inc
 OBJ_DIR = obj/
 SRC_DIR = src/
 MINILIBX_DIR = lib/minilibx_macos/
+FSANITIZE	:= -fsanitize=address -g3
 MINILIBXCC	= -I mlx -L $(MINILIBX_DIR) -lmlx
 OPENGL = -framework OpenGL -framework AppKit
 SRC_FILES	=	read_map get_next_line
