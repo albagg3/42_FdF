@@ -9,7 +9,7 @@ MINILIBX_DIR = lib/minilibx_macos/
 FSANITIZE	:= -fsanitize=address -g3
 MINILIBXCC	= -I mlx -L $(MINILIBX_DIR) -lmlx
 OPENGL = -framework OpenGL -framework AppKit
-SRC_FILES	=	read_map get_next_line
+SRC_FILES	=	read_map get_next_line errors main key_codes
 
 SRC 		= 	$(addprefix $(SRC_DIR), $(addsuffix .c, $(SRC_FILES)))
 OBJ 		= 	$(addprefix $(OBJ_DIR), $(addsuffix .o, $(SRC_FILES)))
@@ -34,7 +34,7 @@ makelib:
 $(NAME) :	$(LIBFT_DIR)/libft.a $(MINILIBX_DIR)libmlx.a $(OBJ)
 		make -sC $(LIBFT_DIR)
 		make -sC $(MINILIBX_DIR)
-		$(CC) $(CFLAGS) $(OBJ) $(LIBFT_DIR)/libft.a $(MINILIBXCC) $(OPENGL) -o $(NAME)
+		$(CC) $(CFLAGS) $(FSANITIZE) $(OBJ) $(LIBFT_DIR)/libft.a $(MINILIBXCC) $(OPENGL) -o $(NAME)
 
 
 

@@ -6,7 +6,7 @@
 /*   By: albagarc <albagarc@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/11 11:08:59 by albagarc          #+#    #+#             */
-/*   Updated: 2022/08/15 13:10:23 by albagarc         ###   ########.fr       */
+/*   Updated: 2022/08/21 13:43:11 by albagarc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,11 +35,18 @@ typedef struct s_point {
 typedef struct s_map {
 	t_point		*points;
 	t_point		limits;
+	int			len;
 	int			total_size;
 
 }	t_map;
 
+typedef struct s_vars{
+	void	*mlx;
+	void	*win;
+}	t_vars;
+
 typedef struct s_all {
+	t_vars	vars;
 	t_map	map;
 	t_data	data;
 }			t_all;
