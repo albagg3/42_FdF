@@ -6,13 +6,16 @@
 /*   By: albagarc <albagarc@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/11 11:08:59 by albagarc          #+#    #+#             */
-/*   Updated: 2022/08/21 13:43:11 by albagarc         ###   ########.fr       */
+/*   Updated: 2022/08/29 09:03:00 by albagarc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef DEFINES_H
 # define DEFINES_H
 # define ROJO 		0xc1272d
+
+# define WINX 1920
+# define WINY 1080
 
 # define BUFFER_SIZE 10
 # define X 0
@@ -35,6 +38,7 @@ typedef struct s_point {
 typedef struct s_map {
 	t_point		*points;
 	t_point		limits;
+	t_point		*projected;
 	int			len;
 	int			total_size;
 

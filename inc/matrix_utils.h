@@ -1,19 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   keycode_hook.h                                     :+:      :+:    :+:   */
+/*   matrix_utils.h                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: albagarc <albagarc@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/08/15 18:42:27 by albagarc          #+#    #+#             */
-/*   Updated: 2022/08/24 10:39:49 by albagarc         ###   ########.fr       */
+/*   Created: 2022/08/24 11:42:13 by albagarc          #+#    #+#             */
+/*   Updated: 2022/08/24 11:44:21 by albagarc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+#include "defines.h"
+#ifndef MATRIX_UTILS_H
+# define MATRIX_UTILS_H
 
-#ifndef KEYCODE_HOOK_H
-# define KEYCODE_HOOK_H
+void	rotation_x(int total_size, t_point *points, t_point *projected, int ang);
 
-# define KEY_ESC	53
-# define KEY_Z		122
-# define KEY_1		18
 #endif

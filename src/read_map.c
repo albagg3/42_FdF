@@ -6,7 +6,7 @@
 /*   By: albagarc <albagarc@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/11 11:29:30 by albagarc          #+#    #+#             */
-/*   Updated: 2022/08/22 12:06:23 by albagarc         ###   ########.fr       */
+/*   Updated: 2022/08/29 09:19:28 by albagarc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,6 +39,7 @@ int	valid_map(char	*file_name, t_map *map)
 
 	map->total_size = 0;
 	map->limits.coordinates[X] = 0;
+	map->limits.coordinates[Y] = 0;
 	fd = open(file_name, O_RDONLY);
 	line = get_next_line(fd);
 	while (line != NULL)
@@ -54,11 +55,6 @@ int	valid_map(char	*file_name, t_map *map)
 		map->limits.coordinates[Y]++;
 		
 	}
-	printf("max_x:%d\n", max_x);
-//	printf("map->limits.coordinates[X]:%i\n", map->limits.coordinates[X]);
-	printf("TOTALSIZE:%d\n", map->total_size);
-
-//	printf("map->limits.coordinates[Y]:%i\n", map->limits.coordinates[Y]);
 	close(fd);
 	return(1);
 
@@ -76,18 +72,15 @@ void	save_map_points(t_map *map, int	line_number, char *line)
 	while (splitted[i] && splitted[i][0] != '\n')
 	{
 		printf("i:%d\n", i);
-		map->points[map->len].coordinates[X] = i;
-		map->points[map->len].coordinates[Y] = line_number;
+		map->points[map->len].coordinates[X] = i - map->limits.coordinates[X]/2;
+		map->points[map->len].coordinates[Y] = line_number - map->limits.coordinates[Y]/2;
 		map->points[map->len].coordinates[Z] = ft_atoi(splitted[i]);
 		i++;
 		printf("[X]=%d\n", map->points[map->len].coordinates[X]);
 		printf("[Y]=%d\n", map->points[map->len].coordinates[Y]);
 		printf("[Z]=%d\n", map->points[map->len].coordinates[Z]);
+		map->len++;
 	}
-	map->len++;
-	printf("i en save-map:%d\n", i);
-
-	printf("total_size en save_map:%d\n", map->total_size);
 }
 //funcion que junto con la anterior me guarda en un array todos los valores de los puntos.
 
@@ -114,7 +107,6 @@ int load_map(char *file_name, t_map *map)
 		save_map_points(map,line_number, line); 
 		line_number++;
 		line = get_next_line(fd);
-		printf("line_number:%d\n", line_number);
 	}
 	return(1);
 }
@@ -131,19 +123,13 @@ void	draw_points(t_all *all)
 {
 	int i;
 	i = 0;
-//	while( i< 1920)
-//		{
-//			my_mlx_pixel_put(&all->data, i, i/4, ROJO);
-//			i++;
-//		}
 	
 	while (i < all->map.total_size)
 	{
 		printf("VALORES EN DRAW x= %d\n",all->map.points[i].coordinates[X]);
 		printf("VALORES EN DRAW y= %d\n",all->map.points[i].coordinates[Y]);
-		my_mlx_pixel_put(&all->data,all->map.points[i].coordinates[X]*10, all->map.points[i].coordinates[Y]*10, 0xff0000);
+		my_mlx_pixel_put(&all->data,all->map.points[i].coordinates[X]*10 + WINX / 2, all->map.points[i].coordinates[Y]*10 + WINY/2, 0xff0000);
 		i++;
 	}
-
 }
 
