@@ -6,7 +6,7 @@
 /*   By: albagarc <albagarc@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/11 11:08:59 by albagarc          #+#    #+#             */
-/*   Updated: 2022/08/29 09:03:00 by albagarc         ###   ########.fr       */
+/*   Updated: 2022/08/30 09:38:46 by albagarc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,16 +31,17 @@ typedef struct	s_data {
 }		t_data;
 
 typedef struct s_point {
-	int		coordinates[3];
+	float	coordinates[3];
 	int		color;
 }	t_point;
 
 typedef struct s_map {
-	t_point		*points;
-	t_point		limits;
-	t_point		*projected;
+	t_point		*points; //guardamos los puntos originales
+	t_point		limits; //guardamos los limites del mapa en la x en la y y en la z 
+	
+	int			ang[3];
 	int			len;
-	int			total_size;
+	int			total_size; // total de puntos del mapa
 
 }	t_map;
 

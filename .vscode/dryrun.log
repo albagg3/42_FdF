@@ -2,18 +2,18 @@ make fdf --dry-run --always-make --keep-going --print-directory
 make: Entering directory `/Users/albagarc/Desktop/42cursus/Fdf'
 mkdir -p obj/
 gcc -I inc  -c -Wall -Wextra -Werror -g3 -MMD src/read_map.c -o obj/read_map.o
- 
 mkdir -p obj/
 gcc -I inc  -c -Wall -Wextra -Werror -g3 -MMD src/get_next_line.c -o obj/get_next_line.o
 mkdir -p obj/
 gcc -I inc  -c -Wall -Wextra -Werror -g3 -MMD src/errors.c -o obj/errors.o
 mkdir -p obj/
 gcc -I inc  -c -Wall -Wextra -Werror -g3 -MMD src/main.c -o obj/main.o
- 
 mkdir -p obj/
 gcc -I inc  -c -Wall -Wextra -Werror -g3 -MMD src/key_codes.c -o obj/key_codes.o
+mkdir -p obj/
+gcc -I inc  -c -Wall -Wextra -Werror -g3 -MMD src/matrix_utils.c -o obj/matrix_utils.o
 make -sC lib/libft_src
 make -sC lib/minilibx_macos/
-gcc -Wall -Wextra -Werror -g3 -fsanitize=address -g3 obj/read_map.o obj/get_next_line.o obj/errors.o obj/main.o obj/key_codes.o lib/libft_src/libft.a -I mlx -L lib/minilibx_macos/ -lmlx -framework OpenGL -framework AppKit -o fdf 
+gcc -Wall -Wextra -Werror -g3 -fsanitize=address -g3 obj/read_map.o obj/get_next_line.o obj/errors.o obj/main.o obj/key_codes.o obj/matrix_utils.o lib/libft_src/libft.a -I mlx -L lib/minilibx_macos/ -lmlx -framework OpenGL -framework AppKit -o fdf 
 make: Leaving directory `/Users/albagarc/Desktop/42cursus/Fdf'
  

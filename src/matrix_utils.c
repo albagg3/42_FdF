@@ -6,10 +6,10 @@
 /*   By: albagarc <albagarc@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/24 09:04:04 by albagarc          #+#    #+#             */
-/*   Updated: 2022/08/24 11:51:08 by albagarc         ###   ########.fr       */
+/*   Updated: 2022/08/30 10:02:05 by albagarc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-
+#include <stdio.h>
 #include "../inc/defines.h"
 #include <math.h>
 
@@ -34,7 +34,7 @@ t_point	mat_mul(float matrix [3][3], t_point	point)
 		k = 0;
 		while (k < 3)
 		{
-			result.coordinates[i] = matrix[i][k] * point.coordinates[k];
+			result.coordinates[i] += matrix[i][k] * point.coordinates[k];
 			k++;
 		}
 		i++;
@@ -51,6 +51,7 @@ void  matrix_zero (float matrix[3][3])
 	j = 0;
 	while (i < 3)
 	{
+		j = 0;
 		while (j < 3)
 		{
 			matrix[i][j] = 0;
@@ -66,6 +67,7 @@ void rotation_x (int total_size,t_point *points, t_point *projected, int ang)
 	float rad;
 	int i;
 
+	
 	i = 0;
 	rad = ang * M_PI / 180;
 	matrix_zero (rotation_matrix);
@@ -75,6 +77,7 @@ void rotation_x (int total_size,t_point *points, t_point *projected, int ang)
 	rotation_matrix[2][1] = sin(rad);
 	rotation_matrix[2][2] = cos(rad);
 
+//	printf("projected[i] %d\n",projected[i]);
 	while (i < total_size)
 	{
 		projected[i] = mat_mul(rotation_matrix, points[i]);

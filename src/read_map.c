@@ -6,7 +6,7 @@
 /*   By: albagarc <albagarc@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/11 11:29:30 by albagarc          #+#    #+#             */
-/*   Updated: 2022/08/29 09:19:28 by albagarc         ###   ########.fr       */
+/*   Updated: 2022/08/30 10:02:10 by albagarc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,7 @@
 #include <stdio.h>
 #include "../lib/libft_src/libft.h"
 #include "../lib/minilibx_macos/mlx.h"
+#include "../inc/utils.h"
 
 //Contamos los elementos de cada linea, con este dato podremos ir comparandolo y sabiendo si todas las lineas tienen el mismo numero de elementos para que pueda ser un mapa valido.
 
@@ -76,9 +77,9 @@ void	save_map_points(t_map *map, int	line_number, char *line)
 		map->points[map->len].coordinates[Y] = line_number - map->limits.coordinates[Y]/2;
 		map->points[map->len].coordinates[Z] = ft_atoi(splitted[i]);
 		i++;
-		printf("[X]=%d\n", map->points[map->len].coordinates[X]);
-		printf("[Y]=%d\n", map->points[map->len].coordinates[Y]);
-		printf("[Z]=%d\n", map->points[map->len].coordinates[Z]);
+		printf("[X]=%f\n", map->points[map->len].coordinates[X]);
+		printf("[Y]=%f\n", map->points[map->len].coordinates[Y]);
+		printf("[Z]=%f\n", map->points[map->len].coordinates[Z]);
 		map->len++;
 	}
 }
@@ -91,7 +92,7 @@ int load_map(char *file_name, t_map *map)
 	char	*line;
 
 	line_number=0;
-	
+	map_init(map);
 	valid_map(file_name, map);
 	printf("TOT=%d\n", map->total_size);
 	map->points = ft_calloc (map->total_size, sizeof(t_point));
@@ -119,16 +120,16 @@ void	my_mlx_pixel_put(t_data *data, int x, int y, int color)
 	*(unsigned int*)dst = color;
 }
 
-void	draw_points(t_all *all)
+void	draw_points(t_all *all, t_point *copy_points)
 {
 	int i;
 	i = 0;
 	
 	while (i < all->map.total_size)
 	{
-		printf("VALORES EN DRAW x= %d\n",all->map.points[i].coordinates[X]);
-		printf("VALORES EN DRAW y= %d\n",all->map.points[i].coordinates[Y]);
-		my_mlx_pixel_put(&all->data,all->map.points[i].coordinates[X]*10 + WINX / 2, all->map.points[i].coordinates[Y]*10 + WINY/2, 0xff0000);
+	//	printf("VALORES EN DRAW x= %d\n",all->map.points[i].coordinates[X]);
+	//	printf("VALORES EN DRAW y= %d\n",all->map.points[i].coordinates[Y]);
+		my_mlx_pixel_put(&all->data,copy_points[i].coordinates[X]*10 + WINX / 2, copy_points[i].coordinates[Y]*10 + WINY/2, 0xff0000);
 		i++;
 	}
 }
