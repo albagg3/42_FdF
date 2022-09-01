@@ -6,13 +6,14 @@
 /*   By: albagarc <albagarc@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/11 11:08:59 by albagarc          #+#    #+#             */
-/*   Updated: 2022/08/30 09:38:46 by albagarc         ###   ########.fr       */
+/*   Updated: 2022/09/01 10:41:17 by albagarc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef DEFINES_H
 # define DEFINES_H
 # define ROJO 		0xc1272d
+# define BLACK		0x000000
 
 # define WINX 1920
 # define WINY 1080

@@ -6,7 +6,7 @@
 /*   By: albagarc <albagarc@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/29 09:25:11 by albagarc          #+#    #+#             */
-/*   Updated: 2022/08/30 10:02:13 by albagarc         ###   ########.fr       */
+/*   Updated: 2022/09/01 11:00:59 by albagarc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "../lib/libft_src/libft.h"
@@ -36,16 +36,39 @@ void	copy_map_points(t_point *src, t_point *dst, int total_size)
 	}
 }
 
+void	black_background(t_data *data)
+{
+	int	x;
+	int y;
+
+	x = 0;
+	y = 0;
+	while (y <= WINY)
+	{
+		x = 0;
+		while(x <= WINX)
+		{
+			my_mlx_pixel_put(data,x,y,BLACK);
+			x++;
+		}
+		y++;
+	}
+}
+
+//llamamos a esta funcion desde key_press y en funcion a las teclas que se hayan presionado nos guarda unas variables en la estructura y ejecuta todas estas funciones cada vez.
+
 void	draw_map(t_all *all)
 {
 	t_point *copy_points;
 	
 	copy_points = malloc (sizeof(t_point) * all->map.total_size);
+	//funcion que me pinte todo el fondo de negro
+	black_background(&all->data);
 	copy_map_points(all->map.points, copy_points, all->map.total_size); // copy map
 	rotation_x(all->map.total_size, copy_points, copy_points,all->map.ang[X]); // parse map
+	rotation_y(all->map.total_size, copy_points, copy_points,all->map.ang[Y]);
+	rotation_z(all->map.total_size, copy_points, copy_points,all->map.ang[Z]);
 	draw_points(all, copy_points);
 	free(copy_points);
 	mlx_put_image_to_window(all->vars.mlx, all->vars.win, all->data.img, 0, 0);
-
-
 }
