@@ -6,7 +6,7 @@
 /*   By: albagarc <albagarc@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/11 11:29:30 by albagarc          #+#    #+#             */
-/*   Updated: 2022/09/01 10:41:12 by albagarc         ###   ########.fr       */
+/*   Updated: 2022/09/24 13:50:26 by albagarc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -129,7 +129,7 @@ void	draw_points(t_all *all, t_point *copy_points)
 	{
 	//	printf("VALORES EN DRAW x= %d\n",all->map.points[i].coordinates[X]);
 	//	printf("VALORES EN DRAW y= %d\n",all->map.points[i].coordinates[Y]);
-		my_mlx_pixel_put(&all->data,copy_points[i].coordinates[X]*10 + WINX / 2, copy_points[i].coordinates[Y]*10 + WINY/2, 0xff0000);
+		my_mlx_pixel_put(&all->data,copy_points[i].coordinates[X] + WINX / 2, copy_points[i].coordinates[Y] + WINY/2, 0xff0000);
 		i++;
 	}
 }

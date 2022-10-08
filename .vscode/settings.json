@@ -8,7 +8,7 @@
         {
             "cwd": "/Users/albagarc/Desktop/42cursus/Fdf",
             "binaryPath": "/Users/albagarc/Desktop/42cursus/Fdf/fdf",
-            "binaryArgs": ["test_maps/42.fdf"]
+            "binaryArgs": ["test_maps/9.fdf"]
         }
     ]
 }

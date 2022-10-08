@@ -9,7 +9,7 @@ MINILIBX_DIR = lib/minilibx_macos/
 FSANITIZE	:= -fsanitize=address -g3
 MINILIBXCC	= -I mlx -L $(MINILIBX_DIR) -lmlx
 OPENGL = -framework OpenGL -framework AppKit
-SRC_FILES	=	read_map get_next_line errors main key_codes matrix_utils draw_map
+SRC_FILES	=	read_map get_next_line errors main key_codes matrix_utils draw_map transformations draw_line
 
 SRC 		= 	$(addprefix $(SRC_DIR), $(addsuffix .c, $(SRC_FILES)))
 OBJ 		= 	$(addprefix $(OBJ_DIR), $(addsuffix .o, $(SRC_FILES)))

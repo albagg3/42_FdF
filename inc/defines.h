@@ -6,7 +6,7 @@
 /*   By: albagarc <albagarc@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/11 11:08:59 by albagarc          #+#    #+#             */
-/*   Updated: 2022/09/01 10:41:17 by albagarc         ###   ########.fr       */
+/*   Updated: 2022/09/24 14:49:44 by albagarc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,6 +42,7 @@ typedef struct s_map {
 	
 	int			ang[3];
 	int			len;
+	float		scale;
 	int			total_size; // total de puntos del mapa
 
 }	t_map;

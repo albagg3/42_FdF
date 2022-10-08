@@ -6,7 +6,7 @@
 /*   By: albagarc <albagarc@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/29 09:25:11 by albagarc          #+#    #+#             */
-/*   Updated: 2022/09/01 11:00:59 by albagarc         ###   ########.fr       */
+/*   Updated: 2022/10/08 12:28:22 by albagarc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "../lib/libft_src/libft.h"
@@ -14,13 +14,14 @@
 #include "../inc/utils.h"
 #include "../lib/minilibx_macos/mlx.h"
 
+
 //funcion que nos haga una copia de los puntos originales para no perder nunca la referencia de cuales son los puntos originales.
 void map_init(t_map *map)
 {
 	map->ang[X] = 0;
 	map->ang[Y] = 0;
 	map->ang[Z] = 0;
-
+	map->scale = 1;
 }
 
 
@@ -55,7 +56,7 @@ void	black_background(t_data *data)
 	}
 }
 
-//llamamos a esta funcion desde key_press y en funcion a las teclas que se hayan presionado nos guarda unas variables en la estructura y ejecuta todas estas funciones cada vez.
+//llamamos a esta funcion desde key_press y en funcion a las teclas que se hayan presionado nos guarda unas  en la estructura y ejecuta todas estas funciones cada vez.
 
 void	draw_map(t_all *all)
 {
@@ -68,7 +69,9 @@ void	draw_map(t_all *all)
 	rotation_x(all->map.total_size, copy_points, copy_points,all->map.ang[X]); // parse map
 	rotation_y(all->map.total_size, copy_points, copy_points,all->map.ang[Y]);
 	rotation_z(all->map.total_size, copy_points, copy_points,all->map.ang[Z]);
+	zoom(copy_points, all->map.total_size, all->map.scale);
 	draw_points(all, copy_points);
+	draw_map_line(all, all->map.total_size,&all->map, copy_points); 
 	free(copy_points);
 	mlx_put_image_to_window(all->vars.mlx, all->vars.win, all->data.img, 0, 0);
 }
