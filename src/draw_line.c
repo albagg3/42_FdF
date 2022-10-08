@@ -52,12 +52,12 @@ void	draw_map_line (t_all *all, int total_size, t_map *map, t_point *proyected)
 		if(i % (int)map->limits.coordinates[X] != 0 || i == 0)
 		{
 			draw_line(all, proyected[i], proyected[i + 1]);
-			draw_line(all, proyected[i], proyected[(i + 1) * (int)map->limits.coordinates[X]]);	//DIBUJA LAS LINEAS HORIZONTAL Y VERTICAL
+			draw_line(all, proyected[i], proyected[(i) + (int)map->limits.coordinates[X]]);	//DIBUJA LAS LINEAS HORIZONTAL Y VERTICAL
 		}
-		else if(i == (int)map->limits.coordinates[Y])
-			draw_line(all, proyected[i], proyected[i + 1]); 				//SOLO DIBUJA LAS LINEAS HORIZONTALES DE ABAJO
-		else
-			draw_line(all, proyected[i], proyected[(i + 1) * (int)map->limits.coordinates[X]]); 	//SOLO DIBUJA LAS VERTICALES FINAL DE LINEA	
+	//	else if(i == (int)map->limits.coordinates[Y])
+	//		draw_line(all, proyected[i], proyected[i + 1]); 				//SOLO DIBUJA LAS LINEAS HORIZONTALES DE ABAJO
+	//	else
+	//		draw_line(all, proyected[i], proyected[(i + 1) * (int)map->limits.coordinates[X]]); 	//SOLO DIBUJA LAS VERTICALES FINAL DE LINEA	
 		i++;
 	}
 }
