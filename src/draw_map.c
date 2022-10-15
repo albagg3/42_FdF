@@ -70,7 +70,7 @@ void	draw_map(t_all *all)
 	rotation_y(all->map.total_size, copy_points, copy_points,all->map.ang[Y]);
 	rotation_z(all->map.total_size, copy_points, copy_points,all->map.ang[Z]);
 	zoom(copy_points, all->map.total_size, all->map.scale);
-	draw_points(all, copy_points);
+//	draw_points(all, copy_points);
 	draw_map_line(all, all->map.total_size,&all->map, copy_points); 
 	free(copy_points);
 	mlx_put_image_to_window(all->vars.mlx, all->vars.win, all->data.img, 0, 0);
