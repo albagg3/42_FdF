@@ -6,7 +6,7 @@
 /*   By: albagarc <albagarc@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/11 11:29:30 by albagarc          #+#    #+#             */
-/*   Updated: 2022/09/24 13:50:26 by albagarc         ###   ########.fr       */
+/*   Updated: 2022/10/22 10:33:04 by albagarc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -112,12 +112,16 @@ int load_map(char *file_name, t_map *map)
 	return(1);
 }
 
-void	my_mlx_pixel_put(t_data *data, int x, int y, int color)
+int		my_mlx_pixel_put(t_data *data, int x, int y, int color)
 {
 	char	*dst;
 
+	if (x >= WINX || y >= WINY || x < 0 || y < 0)
+		return (-1);
+
 	dst = data->addr + (y * data->line_length + x * (data->bits_per_pixel / 8));
 	*(unsigned int*)dst = color;
+	return (0);
 }
 
 void	draw_points(t_all *all, t_point *copy_points)

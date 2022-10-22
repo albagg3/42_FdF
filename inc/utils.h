@@ -6,7 +6,7 @@
 /*   By: albagarc <albagarc@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/16 19:24:06 by albagarc          #+#    #+#             */
-/*   Updated: 2022/10/15 12:59:26 by albagarc         ###   ########.fr       */
+/*   Updated: 2022/10/22 10:31:37 by albagarc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "defines.h"
@@ -24,7 +24,7 @@ void	rotation_x(int total_size, t_point *points, t_point *projected, int ang);
 void	rotation_y(int total_size, t_point *points, t_point *projected, int ang);
 void	rotation_z(int total_size, t_point *points, t_point *projected, int ang);
 void    map_init(t_map *map);
-void	my_mlx_pixel_put(t_data *data, int x, int y, int color);
+int		my_mlx_pixel_put(t_data *data, int x, int y, int color);
 void	zoom(t_point *points, int len, float scale);
 void	draw_map_line(t_all *all, int total_size, t_map *map, t_point *proyected);
 int		ft_mouse_down(int mousecode,int x, int y, t_all *all);
