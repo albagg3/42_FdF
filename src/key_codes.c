@@ -6,7 +6,7 @@
 /*   By: albagarc <albagarc@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/16 19:48:08 by albagarc          #+#    #+#             */
-/*   Updated: 2022/10/15 12:59:20 by albagarc         ###   ########.fr       */
+/*   Updated: 2022/10/29 12:03:51 by albagarc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "../lib/minilibx_macos/mlx.h"
@@ -30,11 +30,14 @@ int     key_press(int keycode, t_all *all)
 	if (keycode == KEY_UP)
 		{
 			all->map.ang[X] += 10;
+			all->map.ang[Y] += 10;
+
 		}
 	if (keycode == KEY_DOWN)
 		{
 			all->map.ang[X] -= 10;
-		}
+			all->map.ang[Y] -= 10;
+	}
 	if (keycode == KEY_RIGHT)
 		{
 			all->map.ang[Y] += 10;
@@ -59,6 +62,11 @@ int     key_press(int keycode, t_all *all)
 		{
 			all->map.scale /= 1.5;
 		}
+
+	if (keycode == KEY_Z)
+	{
+	
+	}
 
 	draw_map(all);
         return(0);

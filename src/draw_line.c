@@ -47,27 +47,17 @@ void    draw_map_line (t_all *all, int total_size, t_map *map, t_point *proyecte
         int i;
 
         i = 0;
-//	printf("el valor de y max es:%d\n", (int)map->limits.coordinates[Y]);
         while( i < total_size -1)
         {
-		if(i >= total_size-(int)map->limits.coordinates[X])
-			draw_line(all, proyected[i], proyected[i + 1]);
-		else if(i == 0 || (i + 1) % (int)map->limits.coordinates[X] != 0) 
+		if(i >= total_size - (int)map->limits.coordinates[X]) 				//nos encontramos en la ultima fila del mapa
+			draw_line(all, proyected[i], proyected[i + 1]);					//pintamos horizontales
+		else if(i == 0 || (i + 1) % (int)map->limits.coordinates[X] != 0) 	//nos encontramos en el primer punto del mapa o en todos los puntos que no sean el ultimo de fila
 		{
-			if(i >= total_size - (int)map->limits.coordinates[Y])
-			{
-//				printf("entra\n");
-				draw_line(all, proyected[i], proyected[i + 1]);
-			}
-			else
-			{	
 				draw_line(all, proyected[i], proyected[i + 1]);
 				draw_line(all, proyected[i], proyected[i + (int)map->limits.coordinates[X]]);
-			}
-
 		}
-//		if((i + 1) % (int)map->limits.coordinates[X] == 0)
-		else
+
+		else																//nos encontramos en elos ultimos de fila
 			draw_line(all, proyected[i], proyected[i + (int)map->limits.coordinates[X]]);
                 i++;
         }

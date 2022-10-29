@@ -6,7 +6,7 @@
 /*   By: albagarc <albagarc@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/24 09:04:04 by albagarc          #+#    #+#             */
-/*   Updated: 2022/09/01 09:55:43 by albagarc         ###   ########.fr       */
+/*   Updated: 2022/10/29 10:43:01 by albagarc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include <stdio.h>
@@ -92,7 +92,7 @@ void rotation_y (int total_size,t_point *points, t_point *projected, int ang)
 	rad = ang * M_PI / 180;
 	matrix_zero (rotation_matrix);
 	rotation_matrix[0][0] = cos(rad);
-	rotation_matrix[1][2] = sin(rad);
+	rotation_matrix[0][2] = sin(rad);
 	rotation_matrix[1][1] = 1;
 	rotation_matrix[2][0] = -sin(rad);
 	rotation_matrix[2][2] = cos(rad);
