@@ -6,9 +6,11 @@
 /*   By: albagarc <albagarc@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/11 11:08:59 by albagarc          #+#    #+#             */
-/*   Updated: 2022/09/24 14:49:44 by albagarc         ###   ########.fr       */
+/*   Updated: 2022/11/24 16:54:31 by albagarc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+
+#include <stdbool.h>
 
 #ifndef DEFINES_H
 # define DEFINES_H
@@ -40,12 +42,21 @@ typedef struct s_map {
 	t_point		*points; //guardamos los puntos originales
 	t_point		limits; //guardamos los limites del mapa en la x en la y y en la z 
 	
-	int			ang[3];
+	float		ang[3];
+	float		divisor;
 	int			len;
 	float		scale;
 	int			total_size; // total de puntos del mapa
 
 }	t_map;
+
+typedef struct s_mouse {
+	bool	left_click;
+	bool	wheel_click;
+	bool	right_click;
+	t_point prev_click_l;
+	t_point prev_click_w;
+}	t_mouse;
 
 typedef struct s_vars{
 	void	*mlx;
@@ -56,6 +67,7 @@ typedef struct s_all {
 	t_vars	vars;
 	t_map	map;
 	t_data	data;
+	t_mouse mouse;
 }			t_all;
 
 

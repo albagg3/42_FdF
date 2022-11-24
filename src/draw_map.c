@@ -6,7 +6,7 @@
 /*   By: albagarc <albagarc@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/29 09:25:11 by albagarc          #+#    #+#             */
-/*   Updated: 2022/10/08 12:28:22 by albagarc         ###   ########.fr       */
+/*   Updated: 2022/11/24 17:21:12 by albagarc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "../lib/libft_src/libft.h"
@@ -22,6 +22,7 @@ void map_init(t_map *map)
 	map->ang[Y] = 0;
 	map->ang[Z] = 0;
 	map->scale = 1;
+	map->divisor = 1;
 }
 
 
@@ -66,6 +67,7 @@ void	draw_map(t_all *all)
 	//funcion que me pinte todo el fondo de negro
 	black_background(&all->data);
 	copy_map_points(all->map.points, copy_points, all->map.total_size); // copy map
+	ft_reduce_z(all->map.total_size,copy_points, all->map.divisor);
 	rotation_x(all->map.total_size, copy_points, copy_points,all->map.ang[X]); // parse map
 	rotation_y(all->map.total_size, copy_points, copy_points,all->map.ang[Y]);
 	rotation_z(all->map.total_size, copy_points, copy_points,all->map.ang[Z]);

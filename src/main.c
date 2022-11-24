@@ -6,7 +6,7 @@
 /*   By: albagarc <albagarc@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/25 13:27:23 by albagarc          #+#    #+#             */
-/*   Updated: 2022/10/15 12:59:29 by albagarc         ###   ########.fr       */
+/*   Updated: 2022/11/24 15:43:34 by albagarc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,8 +42,8 @@ int	main(int argc, char **argv)
 	mlx_hook(all.vars.win, 2, 0, key_press, &all.vars);
 	mlx_hook(all.vars.win, 17, 0, ft_destroy_window, &all.vars);
 	mlx_hook(all.vars.win, 4, 0, ft_mouse_down, &all.vars);
-//	mlx_hook(all.vars.win, 5, 0, ft_mouse_up, &all.vars);
-//	mlx_hook(all.vars.win, 6, 0, ft_mouse_move, &all.vars);
+	mlx_hook(all.vars.win, 5, 0, ft_mouse_up, &all.vars);
+	mlx_hook(all.vars.win, 6, 0, ft_mouse_move, &all.vars);
 
 	mlx_loop(all.vars.mlx);
 

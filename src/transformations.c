@@ -6,11 +6,12 @@
 /*   By: albagarc <albagarc@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/24 13:08:01 by albagarc          #+#    #+#             */
-/*   Updated: 2022/09/24 13:30:28 by albagarc         ###   ########.fr       */
+/*   Updated: 2022/11/24 17:15:07 by albagarc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../inc/defines.h"
+#include <stdio.h>
 
 void zoom (t_point *points, int len, float scale)
 {
@@ -26,4 +27,17 @@ void zoom (t_point *points, int len, float scale)
 	}
 
 
+}
+
+void ft_reduce_z(int len, t_point *points, float divisor)
+{
+	int i;
+
+	i = 0;
+	while (i < len)
+	{
+		printf("reduzzzz: %f\n",points[i].coordinates[Z]);
+		points[i].coordinates[Z] /= divisor;
+		i++;
+	}
 }

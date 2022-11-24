@@ -6,7 +6,7 @@
 /*   By: albagarc <albagarc@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/16 19:48:08 by albagarc          #+#    #+#             */
-/*   Updated: 2022/10/29 12:03:51 by albagarc         ###   ########.fr       */
+/*   Updated: 2022/11/24 17:21:16 by albagarc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "../lib/minilibx_macos/mlx.h"
@@ -56,16 +56,20 @@ int     key_press(int keycode, t_all *all)
 
 	if	(keycode == KEY_P)
 		{
-			all->map.scale *= 1.5;
-		}
-	if	(keycode == KEY_M)
-		{
-			all->map.scale /= 1.5;
+			all->map.ang[X] = 90;
+			all->map.ang[Y] = 0;
+			all->map.ang[Z] = 0;
 		}
 
 	if (keycode == KEY_Z)
 	{
-	
+		printf("zdivisor:%f\n",all->map.divisor);
+		all->map.divisor += 1;
+	}
+	if(keycode == KEY_X)
+	{
+		if(all->map.divisor > 1)
+			all->map.divisor -= 1;
 	}
 
 	draw_map(all);
