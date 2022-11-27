@@ -6,7 +6,7 @@
 /*   By: albagarc <albagarc@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/24 13:08:01 by albagarc          #+#    #+#             */
-/*   Updated: 2022/11/24 17:15:07 by albagarc         ###   ########.fr       */
+/*   Updated: 2022/11/27 16:27:56 by albagarc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,8 +36,17 @@ void ft_reduce_z(int len, t_point *points, float divisor)
 	i = 0;
 	while (i < len)
 	{
-		printf("reduzzzz: %f\n",points[i].coordinates[Z]);
 		points[i].coordinates[Z] /= divisor;
 		i++;
 	}
+}
+
+ 
+void angle(float *angle, float value)
+{
+	*angle += value;
+	if (*angle < 0)
+		*angle = 360 + *angle;
+	if (*angle >= 360)
+		*angle = *angle - 360;
 }

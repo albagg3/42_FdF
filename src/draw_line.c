@@ -6,7 +6,7 @@
 /*   By: albagarc <albagarc@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/06 20:46:51 by albagarc          #+#    #+#             */
-/*   Updated: 2022/10/15 12:59:34 by albagarc         ###   ########.fr       */
+/*   Updated: 2022/11/27 16:00:45 by albagarc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "../inc/defines.h"
@@ -34,7 +34,7 @@ int	draw_line(t_all *all, t_point start, t_point end)
 	{
 //		pixel.color = gradient(start.color, end.color, len, len - pixels);
 //		my_putpixel(meta, pixel);  //Func Ai
-		my_mlx_pixel_put(&all->data, pixel.coordinates[X] + WINX / 2, pixel.coordinates[Y] + WINY/2, 0xff0000);
+		my_mlx_pixel_put(&all->data, pixel.coordinates[X] + WINX / 2, pixel.coordinates[Y] + WINY/2, all->map.points->color);
 		pixel.coordinates[X] += delta.coordinates[X];
 		pixel.coordinates[Y] += delta.coordinates[Y];
 		pixels = pixels - 1;

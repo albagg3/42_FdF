@@ -6,7 +6,7 @@
 /*   By: albagarc <albagarc@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/29 09:25:11 by albagarc          #+#    #+#             */
-/*   Updated: 2022/11/24 17:21:12 by albagarc         ###   ########.fr       */
+/*   Updated: 2022/11/27 16:01:03 by albagarc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "../lib/libft_src/libft.h"

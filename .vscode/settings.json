@@ -9,13 +9,20 @@
             "cwd": "/Users/albagarc/Desktop/42cursus/Fdf",
             "binaryPath": "/Users/albagarc/Desktop/42cursus/Fdf/fdf",
             "binaryArgs": [
-                "test_maps/plat.fdf"
+                "test_maps/9.fdf"
             ]
         },
         {
             "cwd": "/Users/albagarc/Desktop/42cursus/Fdf",
             "binaryPath": "/Users/albagarc/Desktop/42cursus/Fdf/fdf",
             "binaryArgs": []
+        },
+        {
+            "cwd": "/Users/albagarc/Desktop/42cursus/Fdf",
+            "binaryPath": "/Users/albagarc/Desktop/42cursus/Fdf/fdf",
+            "binaryArgs": [
+                "test_maps/plat.fdf"
+            ]
         }
     ]
 }

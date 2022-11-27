@@ -6,13 +6,13 @@
 /*   By: albagarc <albagarc@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/11 11:29:30 by albagarc          #+#    #+#             */
-/*   Updated: 2022/10/22 10:33:04 by albagarc         ###   ########.fr       */
+/*   Updated: 2022/11/27 16:17:45 by albagarc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../inc/defines.h"
 #include "../inc/get_next_line.h"
-#include <fcntl.h>
+#include <stdlib.h>
 #include <stdio.h>
 #include "../lib/libft_src/libft.h"
 #include "../lib/minilibx_macos/mlx.h"
@@ -61,6 +61,23 @@ int	valid_map(char	*file_name, t_map *map)
 
 }
 
+void	ft_load_color(t_map *map, char *line)
+{
+	char **color;
+	if (ft_strchr(line, ',') != 0)
+	{
+
+		color = ft_split(line, ',');
+		printf("entra: %s ",color[1]);
+		map->points[map->len].color = (long)strtol(color[1] + 2 , NULL, 16);
+		printf("sale: %x\n ", map->points[map->len].color);
+		
+	//dbl_free aitor
+	}
+	else
+		map->points[map->len].color = 0xFFFF00;
+}
+
 //Funcion que me guarde los valores de los puntos en arrays
 void	save_map_points(t_map *map, int	line_number, char *line)
 {
@@ -76,10 +93,11 @@ void	save_map_points(t_map *map, int	line_number, char *line)
 		map->points[map->len].coordinates[X] = i - map->limits.coordinates[X]/2;
 		map->points[map->len].coordinates[Y] = line_number - map->limits.coordinates[Y]/2;
 		map->points[map->len].coordinates[Z] = ft_atoi(splitted[i]);
+		ft_load_color(map, splitted[i]);
 		i++;
-		printf("[X]=%f\n", map->points[map->len].coordinates[X]);
-		printf("[Y]=%f\n", map->points[map->len].coordinates[Y]);
-		printf("[Z]=%f\n", map->points[map->len].coordinates[Z]);
+	//	printf("[X]=%f\n", map->points[map->len].coordinates[X]);
+	//	printf("[Y]=%f\n", map->points[map->len].coordinates[Y]);
+	//	printf("[Z]=%f\n", map->points[map->len].coordinates[Z]);
 		map->len++;
 	}
 }

@@ -6,7 +6,7 @@
 /*   By: albagarc <albagarc@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/15 12:19:15 by albagarc          #+#    #+#             */
-/*   Updated: 2022/11/24 17:07:08 by albagarc         ###   ########.fr       */
+/*   Updated: 2022/11/27 16:28:27 by albagarc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "../inc/defines.h"
@@ -47,9 +47,9 @@ int		ft_mouse_move(int x, int y, t_all *all)
 {
 	if(all->mouse.wheel_click)
 	{
-		printf("angX: %f\n angY: %f\n",	all->map.ang[X],	all->map.ang[Y]);
-		all->map.ang[X] = all->mouse.prev_click_l.coordinates[Y] - y;
-		all->map.ang[Y] = all->mouse.prev_click_l.coordinates[X] - x;
+		printf("angX: %f\n angY: %f\n",	all->map.ang[X], all->map.ang[Y]);
+		angle(&all->map.ang[X], all->mouse.prev_click_l.coordinates[Y] - y);
+		angle(&all->map.ang[Y], all->mouse.prev_click_l.coordinates[X] - x);
 		all->mouse.prev_click_l.coordinates[X] = x;
 		all->mouse.prev_click_l.coordinates[Y] = y;
 		draw_map(all);
