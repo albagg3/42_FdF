@@ -13,7 +13,7 @@
 #ifndef ERRORS_H
 # define ERRORS_H
 
-#define	ERR_ARGS	"Error: The number of arguments should be 1"
-#define	ERR_MAP		"Error: The map is not valid"
+# define ERR_ARGS "Error: The number of arguments should be 1"
+# define ERR_MAP "Error: The map is not valid"
 
 #endif

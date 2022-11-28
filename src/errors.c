@@ -6,7 +6,7 @@
 /*   By: albagarc <albagarc@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/16 19:18:06 by albagarc          #+#    #+#             */
-/*   Updated: 2022/08/29 08:58:38 by albagarc         ###   ########.fr       */
+/*   Updated: 2022/11/27 18:40:11 by albagarc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@
 #include "../lib/minilibx_macos/mlx.h"
 #include "../inc/defines.h"
 
-void terminate(char *s)
+void	terminate(char *s)
 {
 	if (errno == 0)
 		ft_putendl_fd(s, 2);
@@ -26,9 +26,9 @@ void terminate(char *s)
 	exit(1);
 }
 
-int ft_destroy_window(t_vars *vars)
+int	ft_destroy_window(t_vars *vars)
 {
 	mlx_destroy_window(vars->mlx, vars->win);
 	exit(0);
-	return(0);
+	return (0);
 }

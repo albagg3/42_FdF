@@ -6,7 +6,7 @@
 /*   By: albagarc <albagarc@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/25 13:27:23 by albagarc          #+#    #+#             */
-/*   Updated: 2022/11/24 15:43:34 by albagarc         ###   ########.fr       */
+/*   Updated: 2022/11/28 14:58:02 by albagarc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,17 +23,15 @@
 
 int	main(int argc, char **argv)
 {
-
-
 	t_all	all;
 
-	if (argc!= 2)
+	if (argc != 2)
 		terminate (ERR_ARGS);
 	all.vars.mlx = mlx_init();
-        all.vars.win = mlx_new_window(all.vars.mlx, 1920, 1080, "Hello world!");
-        all.data.img = mlx_new_image(all.vars.mlx, 1920, 1080);
-        all.data.addr = mlx_get_data_addr(all.data.img, &all.data.bits_per_pixel, &all.data.line_length,&all.data.endian);
-
+	all.vars.win = mlx_new_window(all.vars.mlx, 1920, 1080, "Hello world!");
+	all.data.img = mlx_new_image(all.vars.mlx, 1920, 1080);
+	all.data.addr = mlx_get_data_addr(all.data.img, &all.data.bits_per_pixel, \
+		&all.data.line_length, &all.data.endian);
 	load_map(argv[1], &all.map);
 //	draw_points(&all);
 //	mlx_put_image_to_window(all.vars.mlx, all.vars.win, all.data.img, 0, 0);
@@ -44,8 +42,6 @@ int	main(int argc, char **argv)
 	mlx_hook(all.vars.win, 4, 0, ft_mouse_down, &all.vars);
 	mlx_hook(all.vars.win, 5, 0, ft_mouse_up, &all.vars);
 	mlx_hook(all.vars.win, 6, 0, ft_mouse_move, &all.vars);
-
 	mlx_loop(all.vars.mlx);
-
-        return(0);
+	return (0);
 }

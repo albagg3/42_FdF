@@ -6,35 +6,34 @@
 /*   By: albagarc <albagarc@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/24 09:04:04 by albagarc          #+#    #+#             */
-/*   Updated: 2022/10/29 10:43:01 by albagarc         ###   ########.fr       */
+/*   Updated: 2022/11/27 18:39:21 by albagarc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include <stdio.h>
 #include "../inc/defines.h"
 #include <math.h>
 
-//Funcion que multiplica 2 matrices una de 3x3(matriz de transformacion) y otra de 3x1(punto del mapa). Nos devuelve el punto ya transformado.
+//Funcion que multiplica 2 matrices una de 3x3(matriz de transformacion) y otra
+//de 3x1(punto del mapa). Nos devuelve el punto ya transformado.
 //t_point result : punto transformado
 //contador i: para recorrer las rows de la matriz de 3x3
-//contador k: recorre las cols de la matriz de 3x3 y las rows de la matriz de 3x1
+//contador k: recorre las col de la matriz de 3x3 y las row de la matriz de 3x1
 
-
-t_point	mat_mul(float matrix [3][3], t_point	point)
+t_point	mat_mul(float matrix [3][3], t_point point)
 {
-	t_point result;
-	int i;
-	int k;
+	t_point	result;
+	int		i;
+	int		k;
 
 	i = 0;
 	k = 0;
-
 	while (i < 3)
 	{
-		result.coordinates[i] = 0;
+		result.coord[i] = 0;
 		k = 0;
 		while (k < 3)
 		{
-			result.coordinates[i] += matrix[i][k] * point.coordinates[k];
+			result.coord[i] += matrix[i][k] * point.coord[k];
 			k++;
 		}
 		i++;
@@ -42,10 +41,10 @@ t_point	mat_mul(float matrix [3][3], t_point	point)
 	return (result);
 }
 
-void  matrix_zero (float matrix[3][3])
+void	matrix_zero(float matrix[3][3])
 {
-	int i;
-	int j;
+	int	i;
+	int	j;
 
 	i = 0;
 	j = 0;
@@ -61,11 +60,11 @@ void  matrix_zero (float matrix[3][3])
 	}
 }
 
-void rotation_x (int total_size,t_point *points, t_point *projected, int ang)
+void	rotation_x(int len, t_point *points, t_point *projected, int ang)
 {
-	float rotation_matrix [3][3];
-	float rad;
-	int i;
+	float	rotation_matrix[3][3];
+	float	rad;
+	int		i;
 
 	i = 0;
 	rad = ang * M_PI / 180;
@@ -75,18 +74,18 @@ void rotation_x (int total_size,t_point *points, t_point *projected, int ang)
 	rotation_matrix[1][2] = -sin(rad);
 	rotation_matrix[2][1] = sin(rad);
 	rotation_matrix[2][2] = cos(rad);
-	while (i < total_size)
+	while (i < len)
 	{
 		projected[i] = mat_mul(rotation_matrix, points[i]);
 		i++;
 	}
 }
 
-void rotation_y (int total_size,t_point *points, t_point *projected, int ang)
+void	rotation_y(int len, t_point *points, t_point *projected, int ang)
 {
-	float rotation_matrix [3][3];
-	float rad;
-	int i;
+	float	rotation_matrix[3][3];
+	float	rad;
+	int		i;
 
 	i = 0;
 	rad = ang * M_PI / 180;
@@ -96,18 +95,18 @@ void rotation_y (int total_size,t_point *points, t_point *projected, int ang)
 	rotation_matrix[1][1] = 1;
 	rotation_matrix[2][0] = -sin(rad);
 	rotation_matrix[2][2] = cos(rad);
-	while (i < total_size)
+	while (i < len)
 	{
 		projected[i] = mat_mul(rotation_matrix, points[i]);
 		i++;
 	}
 }
 
-void rotation_z (int total_size,t_point *points, t_point *projected, int ang)
+void	rotation_z(int len, t_point *points, t_point *projected, int ang)
 {
-	float rotation_matrix [3][3];
-	float rad;
-	int i;
+	float	rotation_matrix[3][3];
+	float	rad;
+	int		i;
 
 	i = 0;
 	rad = ang * M_PI / 180;
@@ -117,7 +116,7 @@ void rotation_z (int total_size,t_point *points, t_point *projected, int ang)
 	rotation_matrix[1][0] = sin(rad);
 	rotation_matrix[1][1] = cos(rad);
 	rotation_matrix[2][2] = 1;
-	while (i < total_size)
+	while (i < len)
 	{
 		projected[i] = mat_mul(rotation_matrix, points[i]);
 		i++;

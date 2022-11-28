@@ -9,10 +9,10 @@
 /*   Updated: 2022/08/24 11:44:21 by albagarc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-#include "defines.h"
 #ifndef MATRIX_UTILS_H
+# include "defines.h"
 # define MATRIX_UTILS_H
 
-void	rotation_x(int total_size, t_point *points, t_point *projected, int ang);
+void	rotation_x(int len, t_point *points, t_point *projected, int ang);
 
 #endif

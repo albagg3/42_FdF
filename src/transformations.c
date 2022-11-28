@@ -6,43 +6,54 @@
 /*   By: albagarc <albagarc@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/24 13:08:01 by albagarc          #+#    #+#             */
-/*   Updated: 2022/11/27 16:27:56 by albagarc         ###   ########.fr       */
+/*   Updated: 2022/11/28 14:33:41 by albagarc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../inc/defines.h"
 #include <stdio.h>
 
-void zoom (t_point *points, int len, float scale)
+void	zoom(t_point *points, int len, float scale)
 {
-	int i;
+	int	i;
 
 	i = 0;
 	while (i < len)
 	{
-		points[i].coordinates[X] *= scale;
-		points[i].coordinates[Y] *= scale;
-		points[i].coordinates[Z] *= scale;
+		points[i].coord[X] *= scale;
+		points[i].coord[Y] *= scale;
+		points[i].coord[Z] *= scale;
 		i++;
 	}
-
-
 }
 
-void ft_reduce_z(int len, t_point *points, float divisor)
+void	ft_reduce_z(int len, t_point *points, float divisor)
 {
-	int i;
+	int	i;
 
 	i = 0;
 	while (i < len)
 	{
-		points[i].coordinates[Z] /= divisor;
+		points[i].coord[Z] /= divisor;
 		i++;
 	}
 }
 
- 
-void angle(float *angle, float value)
+void	traslate_to_a_point(int len, t_point *points, t_point distance)
+{
+	int	i;
+
+	i = 0;
+	while (i < len)
+	{
+		points[i].coord[X] += distance.coord[X];
+		points[i].coord[Y] += distance.coord[Y];
+		points[i].coord[Z] += distance.coord[Z];
+		i++;
+	}
+}
+
+void	angle(float *angle, float value)
 {
 	*angle += value;
 	if (*angle < 0)
