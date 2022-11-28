@@ -31,8 +31,8 @@ int	draw_line(t_all *all, t_point start, t_point end)
 	pixel.coord[Y] = start.coord[Y];
 	while (pixels > 0)
 	{
-		my_mlx_pixel_put(&all->data, pixel.coord[X]/* + WINX / 2*/, pixel.coord[Y] \
-			/*+ WINY / 2*/, all->map.points->color);
+		my_mlx_pixel_put(&all->data, pixel.coord[X], pixel.coord[Y] \
+			, start.color);
 		pixel.coord[X] += delta.coord[X];
 		pixel.coord[Y] += delta.coord[Y];
 		pixels = pixels - 1;

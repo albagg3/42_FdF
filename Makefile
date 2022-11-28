@@ -1,7 +1,7 @@
 NAME = fdf 
 CC = gcc
 LIBFT_DIR = lib/libft_src
-CFLAGS = -Wall -Wextra -Werror -g3
+CFLAGS = -Wall -Wextra -Werror -g
 INC_DIR = inc
 OBJ_DIR = obj/
 SRC_DIR = src/

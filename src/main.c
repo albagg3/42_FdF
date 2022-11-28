@@ -19,7 +19,7 @@
 #include "../inc/utils.h"
 #include "../inc/defines.h"
 #include "../inc/errors.h"
-#include "../inc/matrix_utils.h"
+
 
 int	main(int argc, char **argv)
 {
@@ -27,12 +27,13 @@ int	main(int argc, char **argv)
 
 	if (argc != 2)
 		terminate (ERR_ARGS);
+	load_map(argv[1], &all.map);
 	all.vars.mlx = mlx_init();
-	all.vars.win = mlx_new_window(all.vars.mlx, 1920, 1080, "Hello world!");
+	all.vars.win = mlx_new_window(all.vars.mlx, 1920, 1080, "Fdf");
 	all.data.img = mlx_new_image(all.vars.mlx, 1920, 1080);
 	all.data.addr = mlx_get_data_addr(all.data.img, &all.data.bits_per_pixel, \
 		&all.data.line_length, &all.data.endian);
-	load_map(argv[1], &all.map);
+	
 //	draw_points(&all);
 //	mlx_put_image_to_window(all.vars.mlx, all.vars.win, all.data.img, 0, 0);
 //	mlx_key_hook(all.vars.win, key_press, &all.vars);

@@ -58,6 +58,7 @@ int	valid_map(char	*file_name, t_map *map)
 		line = get_next_line(fd);
 		map->total_size += max_x;
 		map->limits.coord[Y]++;
+		write(1,"*",1);
 	}
 	close(fd);
 	return (1);
@@ -123,6 +124,7 @@ int	load_map(char *file_name, t_map *map)
 		save_map_points(map, line_number, line);
 		line_number++;
 		line = get_next_line(fd);
+		write(1, ".", 1);
 	}
 	return (1);
 }

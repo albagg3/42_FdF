@@ -14,7 +14,6 @@
 #include "../inc/defines.h"
 #include <stdlib.h>
 #include <stdio.h>
-#include "../inc/matrix_utils.h"
 #include "../inc/utils.h"
 
 int	key_press(int keycode, t_all *all)

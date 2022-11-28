@@ -38,8 +38,12 @@ t_point	mat_mul(float matrix [3][3], t_point point)
 		}
 		i++;
 	}
+	result.color = point.color;
 	return (result);
 }
+
+//Funcion que nos inicia una matriz e 3x3 con todo 0 para rellenar solo 
+//los valores que necesitamos de la matriz de rotacion.
 
 void	matrix_zero(float matrix[3][3])
 {
@@ -59,6 +63,8 @@ void	matrix_zero(float matrix[3][3])
 		i++;
 	}
 }
+
+//Funcion que rota los puntos en el eje X
 
 void	rotation_x(int len, t_point *points, t_point *projected, int ang)
 {
@@ -81,6 +87,8 @@ void	rotation_x(int len, t_point *points, t_point *projected, int ang)
 	}
 }
 
+//Funcion que rota los puntos en el eje Y
+
 void	rotation_y(int len, t_point *points, t_point *projected, int ang)
 {
 	float	rotation_matrix[3][3];
@@ -101,6 +109,8 @@ void	rotation_y(int len, t_point *points, t_point *projected, int ang)
 		i++;
 	}
 }
+
+//Funcion que rota los puntos en el eje Z
 
 void	rotation_z(int len, t_point *points, t_point *projected, int ang)
 {
