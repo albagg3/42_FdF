@@ -6,7 +6,7 @@
 /*   By: albagarc <albagarc@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/16 19:18:06 by albagarc          #+#    #+#             */
-/*   Updated: 2022/11/29 15:22:31 by albagarc         ###   ########.fr       */
+/*   Updated: 2022/12/01 11:42:20 by albagarc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,21 @@
 #include "../lib/libft_src/libft.h"
 #include "../lib/minilibx_macos/mlx.h"
 #include "../inc/defines.h"
+
+void	free_double_pointer(char **ptr)
+{
+	int	i;
+
+	if (!ptr)
+		return ;
+	i = 0;
+	while (ptr[i])
+	{
+		free(ptr[i]);
+		i++;
+	}
+	free(ptr);
+}
 
 void	terminate(char *s)
 {

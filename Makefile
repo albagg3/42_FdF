@@ -1,12 +1,12 @@
 NAME = fdf 
 CC = gcc
 LIBFT_DIR = lib/libft_src
-CFLAGS = -Wall -Wextra -Werror -g
+CFLAGS = -Wall -Wextra -Werror -g -O0
 INC_DIR = inc
 OBJ_DIR = obj/
 SRC_DIR = src/
 MINILIBX_DIR = lib/minilibx_macos/
-FSANITIZE	:= -fsanitize=address -g3
+#FSANITIZE	:= -fsanitize=address -g3
 MINILIBXCC	= -I mlx -L $(MINILIBX_DIR) -lmlx
 OPENGL = -framework OpenGL -framework AppKit
 SRC_FILES	=	read_map get_next_line errors main key_codes matrix_utils draw_map transformations draw_line mouse
@@ -29,6 +29,9 @@ all: makelib
 makelib:
 		@$(MAKE) -C $(LIBFT_DIR)
 		@$(MAKE) -C $(MINILIBX_DIR)
+
+bonus:
+		@$(MAKE) all
 
 -include $(DEPS)
 $(NAME) :	$(LIBFT_DIR)/libft.a $(MINILIBX_DIR)libmlx.a $(OBJ)

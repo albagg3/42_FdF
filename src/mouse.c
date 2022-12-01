@@ -6,7 +6,7 @@
 /*   By: albagarc <albagarc@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/15 12:19:15 by albagarc          #+#    #+#             */
-/*   Updated: 2022/11/28 14:57:28 by albagarc         ###   ########.fr       */
+/*   Updated: 2022/11/29 15:56:16 by albagarc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "../inc/defines.h"
@@ -17,7 +17,6 @@ int	ft_mouse_down(int mousecode, int x, int y, t_all *all)
 {
 	if (mousecode == 1)
 	{
-		printf("entra_en_mouse_down");
 		all->mouse.left_click = 1;
 		all->mouse.prev_click_l.coord[X] = x;
 		all->mouse.prev_click_l.coord[Y] = y;
@@ -44,7 +43,6 @@ int	ft_mouse_move(int x, int y, t_all *all)
 {
 	if (all->mouse.wheel_click)
 	{
-		printf("angX: %f\n angY: %f\n",	all->map.ang[X], all->map.ang[Y]);
 		angle(&all->map.ang[X], all->mouse.prev_click_l.coord[Y] - y);
 		angle(&all->map.ang[Y], all->mouse.prev_click_l.coord[X] - x);
 		all->mouse.prev_click_l.coord[X] = x;

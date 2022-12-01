@@ -6,7 +6,7 @@
 /*   By: albagarc <albagarc@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/25 13:27:23 by albagarc          #+#    #+#             */
-/*   Updated: 2022/11/28 14:58:02 by albagarc         ###   ########.fr       */
+/*   Updated: 2022/11/30 18:26:08 by albagarc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,6 @@
 #include "../inc/defines.h"
 #include "../inc/errors.h"
 
-
 int	main(int argc, char **argv)
 {
 	t_all	all;
@@ -33,11 +32,6 @@ int	main(int argc, char **argv)
 	all.data.img = mlx_new_image(all.vars.mlx, 1920, 1080);
 	all.data.addr = mlx_get_data_addr(all.data.img, &all.data.bits_per_pixel, \
 		&all.data.line_length, &all.data.endian);
-	
-//	draw_points(&all);
-//	mlx_put_image_to_window(all.vars.mlx, all.vars.win, all.data.img, 0, 0);
-//	mlx_key_hook(all.vars.win, key_press, &all.vars);
-//	draw_map(&all);
 	mlx_hook(all.vars.win, 2, 0, key_press, &all.vars);
 	mlx_hook(all.vars.win, 17, 0, ft_destroy_window, &all.vars);
 	mlx_hook(all.vars.win, 4, 0, ft_mouse_down, &all.vars);

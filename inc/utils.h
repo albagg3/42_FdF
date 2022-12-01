@@ -6,7 +6,7 @@
 /*   By: albagarc <albagarc@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/16 19:24:06 by albagarc          #+#    #+#             */
-/*   Updated: 2022/11/27 17:17:48 by albagarc         ###   ########.fr       */
+/*   Updated: 2022/11/30 17:36:42 by albagarc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #ifndef UTILS_H
@@ -32,4 +32,5 @@ int		ft_mouse_up(int mousecode, int x, int y, t_all *all);
 int		ft_mouse_move(int x, int y, t_all *all);
 void	angle(float *angle, float value);
 void	traslate_to_a_point(int len, t_point *points, t_point distance);
+void	free_double_pointer(char **ptr);
 #endif

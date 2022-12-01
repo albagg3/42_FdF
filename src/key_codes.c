@@ -6,7 +6,7 @@
 /*   By: albagarc <albagarc@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/16 19:48:08 by albagarc          #+#    #+#             */
-/*   Updated: 2022/11/27 18:46:05 by albagarc         ###   ########.fr       */
+/*   Updated: 2022/12/01 11:51:22 by albagarc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "../lib/minilibx_macos/mlx.h"
@@ -16,7 +16,7 @@
 #include <stdio.h>
 #include "../inc/utils.h"
 
-int	key_press(int keycode, t_all *all)
+int	key_press1(int keycode, t_all *all)
 {
 	if (keycode == KEY_ESC)
 	{
@@ -41,11 +41,17 @@ int	key_press(int keycode, t_all *all)
 	{
 		all->map.ang[Y] -= 10;
 	}
-	if (keycode == KEY_R)
+	draw_map(all);
+	return (0);
+}
+
+int	key_press2(int keycode, t_all *all)
+{
+	if (keycode == KEY_I)
 	{
-		all->map.ang[X] = 0;
-		all->map.ang[Y] = 0;
-		all->map.ang[Z] = 0;
+		all->map.ang[X] = 30;
+		all->map.ang[Y] = 330;
+		all->map.ang[Z] = 30;
 	}
 	if (keycode == KEY_P)
 	{
@@ -63,5 +69,12 @@ int	key_press(int keycode, t_all *all)
 			all->map.divisor -= 1;
 	}
 	draw_map(all);
+	return (0);
+}
+
+int	key_press(int keycode, t_all*all)
+{
+	key_press2(keycode, all);
+	key_press1(keycode, all);
 	return (0);
 }
