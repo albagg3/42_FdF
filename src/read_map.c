@@ -6,7 +6,7 @@
 /*   By: albagarc <albagarc@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/11 11:29:30 by albagarc          #+#    #+#             */
-/*   Updated: 2022/12/01 11:44:05 by albagarc         ###   ########.fr       */
+/*   Updated: 2022/12/02 10:55:04 by albagarc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,7 @@ int	count_elems_line(char **split)
 	i = 0;
 	while (split[i] && split[i][0] != '\n')
 		i++;
-	if (i == 0 || (i == 1 && split[i][0] == '\n'))
+	if (i == 0 || (i == 1 && split[0][0] == '\n'))
 		terminate(ERR_EMPTY);
 	return (i);
 }
@@ -95,7 +95,7 @@ void	save_map_points(t_map *map, int line_number, char *line)
 	{
 		map->points[map->len].coord[X] = i - map->limits.coord[X] / 2;
 		map->points[map->len].coord[Y] = line_number - map->limits.coord[Y] / 2;
-		if (!ft_isdigit(splitted[i][0]))
+		if (!ft_isdigit(splitted[i][0]) && splitted[i][0] != '-')
 			terminate(ERR_MAP);
 		map->points[map->len].coord[Z] = ft_atoi(splitted[i]);
 		ft_load_color(map, splitted[i]);

@@ -9,7 +9,7 @@
             "request": "launch",
             "name": "Debug",
             "program": "/Users/albagarc/Desktop/42cursus/Fdf/fdf",
-            "args": ["test_maps/pyramide.fdf"],
+            "args": ["test_maps/1_point.fdf"],
             "cwd": "/Users/albagarc/Desktop/42cursus/Fdf"
         }
     ]

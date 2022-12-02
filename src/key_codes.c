@@ -6,7 +6,7 @@
 /*   By: albagarc <albagarc@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/16 19:48:08 by albagarc          #+#    #+#             */
-/*   Updated: 2022/12/01 11:51:22 by albagarc         ###   ########.fr       */
+/*   Updated: 2022/12/02 10:33:48 by albagarc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "../lib/minilibx_macos/mlx.h"
