@@ -2,6 +2,15 @@
 This project is about representing a landscape as a 3D object
 in which all surfaces are outlined in lines.
 
+⬇ To pull files ⬇
+```bash
+$ git clone git@github.com:albagg3/42_FdF.git
+```
+⚙ To compile the FdF ⚙
+```bash
+$ make
+```
+
 ## How does it work?
 ![gif](./img/1280_720.gif)
 
